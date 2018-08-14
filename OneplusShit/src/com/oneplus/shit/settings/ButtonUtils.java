@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 The CyanogenMod Project
+ * Copyright (C) 2017 The MoKee Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,14 @@
  * limitations under the License.
  */
 
-package org.lineageos.pocketmode;
+package com.oneplus.shit.settings;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
+import com.oneplus.shit.settings.utils.FileUtils;
 
-public class BootCompletedReceiver extends BroadcastReceiver {
+class ButtonUtils {
 
-    private static final String TAG = "OneplusPocketMode";
-
-    @Override
-    public void onReceive(final Context context, Intent intent) {
-        Log.d(TAG, "Starting");
-        context.startService(new Intent(context, PocketModeService.class));
+    static boolean isSliderSupported() {
+        return FileUtils.fileExists(ButtonConstants.SLIDER_STATE_NODE);
     }
+
 }
